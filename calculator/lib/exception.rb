@@ -1,2 +1,2 @@
-class NotNumeric < StandardError
+class InvalidNumber < StandardError
 end
