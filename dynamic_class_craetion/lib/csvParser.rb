@@ -1,7 +1,7 @@
 require "csv"
 class CsvParser
-  attr_accessor :file_name , :headers,:rows
-  def initialize(filename,headers=[],rows=[])
+  attr_accessor :file_name , :headers , :rows
+  def initialize(filename, headers = [], rows = [])
     @file_name = filename
 	  @headers = []
     @rows = []
@@ -10,7 +10,7 @@ class CsvParser
 	  "#{ File.dirname(__FILE__) }/#{ file_name }"
 	end
   def create_custom_class
-    temp_array=[]
+    temp_array = []
     correct_format = headers.collect { |var| "i"+ var.gsub(" ","_")}
     symbols = correct_format.collect(&:to_sym)
     for i in 0...headers.length
@@ -36,7 +36,7 @@ class CsvParser
   end
   def parseCsv
     row = [] 
-    options = {:headers => true, :return_headers => false}
+    options = { :headers => true, :return_headers => false }
     CSV.open( filePath, "r", options ) do |csv|
       row = csv.find_all { |r| r }
       self.headers = csv.headers
