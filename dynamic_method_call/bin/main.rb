@@ -17,7 +17,6 @@ end
 else
   puts "you can enter variable number of arguements.leave an empty line once u are done"
   while !$_.chomp.empty?
-    puts $_
 	  argument << gets.chomp
   end
 end
