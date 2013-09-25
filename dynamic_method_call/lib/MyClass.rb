@@ -8,8 +8,10 @@ class MyClass < String
     rjust(Integer(string),k)
   end
 
-  def delete_char(*args)
-  	delete *args
+  def delete_char(arg1, *args)
+  	delete arg1,*args
   end
-
+  def myfunc(arg1, arg2, arg3 = "default1", arg4 = "default2")
+    puts "function executed successfully"
+  end
 end
