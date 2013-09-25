@@ -8,4 +8,8 @@ class MyClass < String
     rjust(Integer(string),k)
   end
 
+  def delete_char(*args)
+  	delete *args
+  end
+
 end

@@ -7,11 +7,20 @@ puts MyClass.instance_methods(false)
 puts "enter method name"
 method_name = gets.chomp
 no_of_arguments = object.method(method_name).arity
-puts "#{no_of_arguments} arguments needed.Pls enter!!" if no_of_arguments > 0
 argument = []
-no_of_arguments.times do 
-  argument << gets.chomp 
+if no_of_arguments > 0
+  puts "#{no_of_arguments} arguments needed.Pls enter!!" 
+  no_of_arguments.times do 
+  input = gets.chomp
+  argument << input 
 end 
+else
+  puts "you can enter variable number of arguements.leave an empty line once u are done"
+  while !$_.chomp.empty?
+    puts $_
+	  argument << gets.chomp
+  end
+end
 argument.reject! { |element| element.empty?}
 begin
   puts object.send method_name, *argument
