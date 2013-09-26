@@ -14,7 +14,11 @@ class CsvParser
   
   def create_custom_class
     temp_array = []
-    correct_format = headers.collect { |var| "i"+ var.gsub(" ","_")}
+    correct_format = headers.collect { |var| 
+      var.gsub!(' ',"_") 
+      var = ('_'+ var) if  !(var[0] =~ /[a-z]/) 
+      var
+    }
     symbols = correct_format.collect(&:to_sym)
     for i in 0...headers.length
       temp_array[2*i] = headers[i]
